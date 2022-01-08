@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_sbx/apps/countdown/main.dart';
 import 'package:flutter_sbx/apps/pageview/home.dart';
 import 'package:flutter_sbx/apps/provider/home.dart';
 
@@ -34,6 +35,10 @@ class Home extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            TextButton(
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const CountDownPage())),
+                child: const Text('CountDown')),
             TextButton(
                 onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const TodoWidget())),
