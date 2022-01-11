@@ -35,13 +35,25 @@ class ButtonsWidget extends ConsumerWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         isActive.state
-            ? ButtonWidget('pause', () {
-                ref.read(timerProvider.notifier).stop();
-              })
-            : ButtonWidget('start', () {
-                ref.read(timerProvider.notifier).start();
-              }),
-        ButtonWidget('reset', ref.read(timerProvider.notifier).reset),
+            ? ButtonWidget(
+                'pause',
+                () {
+                  ref.read(timerProvider.notifier).stop();
+                },
+                key: const Key('pause'),
+              )
+            : ButtonWidget(
+                'start',
+                () {
+                  ref.read(timerProvider.notifier).start();
+                },
+                key: const Key('start'),
+              ),
+        ButtonWidget(
+          'reset',
+          ref.read(timerProvider.notifier).reset,
+          key: const Key('reset'),
+        ),
       ],
     );
   }
